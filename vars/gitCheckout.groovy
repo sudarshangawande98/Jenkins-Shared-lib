@@ -1,3 +1,6 @@
-def call() {
-  git branch: 'main', url: 'https://github.com/sudarshangawande98/01_Hello_World_War_Project.git'
+def call(String url, String branch) {
+    echo "Checking out branch '${branch}' from '${url}'"
+    checkout([$class: 'GitSCM',
+              branches: [[name: branch]],
+              userRemoteConfigs: [[url: url]]])
 }
